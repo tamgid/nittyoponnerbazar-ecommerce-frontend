@@ -7,7 +7,7 @@ export default function Home() {
 
       {/* Featured Products */}
       <section className="py-16 px-4 md:px-8">
-        <h2 className="text-3xl font-bold text-gray-800 text-center mb-10">Featured Products</h2>
+        <h2 className="text-3xl font-bold text-gray-800 text-center mb-10">Featured Products List</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {/* Product Card */}
           {[1, 2, 3, 4].map((product) => (

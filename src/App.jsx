@@ -1,11 +1,13 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
-import Navbar from './components/Navbar'
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Navbar from "./components/navbar/Navbar";
+import SecondaryNavbar from "./components/navbar/SecondaryNavbar";
 
 function App() {
   return (
     <Router>
       <Navbar /> {/* Include Navbar here */}
+      <SecondaryNavbar />
       <Routes>
         <Route path="/" element={<Home />} />
         {/* Add more routes as needed */}

@@ -10,6 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+<<<<<<< HEAD
+    "@reduxjs/toolkit": "^2.3.0",
+    "axios": "^1.7.7",
+    "daisyui": "^4.12.13",
+    "flowbite": "^2.5.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+=======
     "@mui/icons-material": "^6.1.5",
     "@reduxjs/toolkit": "^2.3.0",
     "axios": "^1.7.7",
@@ -19,6 +27,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.3.0",
+>>>>>>> d842a5535b9267f08b147d978178655d102524af
     "react-query": "^3.39.3",
     "react-redux": "^9.1.2",
     "react-router-dom": "^6.27.0",
@@ -29,14 +38,20 @@
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.3",
+<<<<<<< HEAD
+=======
     "autoprefixer": "^10.4.20",
     "daisyui": "^4.12.13",
+>>>>>>> d842a5535b9267f08b147d978178655d102524af
     "eslint": "^9.13.0",
     "eslint-plugin-react": "^7.37.1",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.13",
     "globals": "^15.11.0",
+<<<<<<< HEAD
+=======
     "postcss": "^8.4.47",
+>>>>>>> d842a5535b9267f08b147d978178655d102524af
     "tailwindcss": "^3.4.14",
     "vite": "^5.4.9"
   }

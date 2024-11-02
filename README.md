@@ -1,14 +1,18 @@
 # Nittyoponnerbazar E-commerce Frontend
 
-Welcome to the Nittyoponnerbazar E-commerce project! This application is designed to provide an intuitive and efficient online shopping experience for customers.
+Welcome to the Nittyoponnerbazar E-commerce Frontend project! This application is designed to provide an intuitive and efficient online shopping experience for fragrance lovers.
 
 ## Table of Contents
-1. [Technology Stack](#technology-stack)
-2. [Main Features](#main-features)
-3. [Project Initialization Steps](#project-initialization-steps)
-4. [Our Goal](#our-goal)
-5. [Contributing](#contributing)
-6. [License](#license)
+- [Nittyoponnerbazar E-commerce Frontend](#nittyoponnerbazar-e-commerce-frontend)
+  - [Table of Contents](#table-of-contents)
+  - [Technology Stack](#technology-stack)
+  - [Main Features](#main-features)
+    - [Essential Features](#essential-features)
+    - [Advanced Features (Optional)](#advanced-features-optional)
+  - [Project Initialization Steps](#project-initialization-steps)
+  - [Our Goal](#our-goal)
+  - [Contributing](#contributing)
+  - [License](#license)
 
 ## Technology Stack
 
@@ -38,7 +42,7 @@ The project is built using the following technologies:
 
 2. **User Authentication and Authorization**:
    - Roles: Customer, Admin, and Staff.
-   - Signup/Login functionality via email/password or OAuth (Google).
+   - Signup/Login functionality via email/password or OAuth (Google, Facebook).
    - Profile management for users to update their personal information.
    - Admin dashboard for managing products, categories, orders, and customers.
 

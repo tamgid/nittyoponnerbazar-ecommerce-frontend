@@ -1,12 +1,8 @@
-// src/redux/store.js
 import { configureStore } from '@reduxjs/toolkit';
-import productsReducer from '../features/products/productsSlice';
+import testReducer from '../features/test/testSlice';
 
-const store = configureStore({
+export const store = configureStore({
   reducer: {
-    products: productsReducer,
-    // You can add other slices here
+    test: testReducer,
   },
 });
-
-export default store;

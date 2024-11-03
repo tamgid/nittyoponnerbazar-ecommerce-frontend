@@ -18,10 +18,10 @@ const Banner = () => {
   return (
     <div>
       <Swiper
-      spaceBetween={30}
+        spaceBetween={30}
         centeredSlides={true}
         autoplay={{
-          delay: 4500
+          delay: 4500,
         }}
         pagination={{
           clickable: true,
@@ -36,7 +36,7 @@ const Banner = () => {
             style={{
               backgroundImage: "url(banner4.jpeg)",
               backgroundSize: "cover",
-              backgroundPosition: "center", 
+              backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
             }}
           >
@@ -65,8 +65,8 @@ const Banner = () => {
             className="hero min-h-screen shadow-[#1967D2] shadow-2xl"
             style={{
               backgroundImage: "url(dairy.jpg)",
-              backgroundSize: "cover", 
-              backgroundPosition: "center", 
+              backgroundSize: "cover",
+              backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
             }}
           >
@@ -95,8 +95,8 @@ const Banner = () => {
             className="hero min-h-screen shadow-[#1967D2] shadow-2xl"
             style={{
               backgroundImage: "url(pizza.jpeg)",
-              backgroundSize: "cover", 
-              backgroundPosition: "center", 
+              backgroundSize: "cover",
+              backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
             }}
           >
@@ -124,8 +124,8 @@ const Banner = () => {
             className="hero min-h-screen shadow-[#1967D2] shadow-2xl"
             style={{
               backgroundImage: "url(coffee.jpg)",
-              backgroundSize: "cover", 
-              backgroundPosition: "center", 
+              backgroundSize: "cover",
+              backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
             }}
           >

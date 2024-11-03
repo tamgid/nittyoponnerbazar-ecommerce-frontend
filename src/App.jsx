@@ -4,6 +4,9 @@ import Navbar from "./components/navbar/Navbar";
 import SecondaryNavbar from "./components/navbar/SecondaryNavbar";
 import Error from "../Error";
 import "./index.css"
+import UserProfile from "./pages/UserProfile/UserProfile";
+import Footer from "./components/footer/Footer";
+import UpdateProfile from "./pages/UserProfile/UpdateProfile";
 
 function App() {
   return (
@@ -14,9 +17,12 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/error" element={<Error />} />
+        <Route path="/my-profile" element={<UserProfile />} />
+        <Route path="/update-profile" element={<UpdateProfile />} />
         {/* Add more routes as needed */}
       </Routes>
     </Router>
+    <Footer></Footer>
     </div>
   );
 }

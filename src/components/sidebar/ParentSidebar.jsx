@@ -74,12 +74,12 @@ const ParentSidebar = () => {
 // Updated Catalog component to handle multiple categories in each catalog
 const Catalog = ({ name, categories, onCategoryClick }) => (
   <div className="mb-4">
-    <h2 className="font-bold text-xl mb-2">{name}</h2>
+    <h2 className="font-semibold text-xl mb-2">{name}</h2>
     <ul>
       {Object.entries(categories).map(([category, products]) => (
         <li
           key={category}
-          className="flex justify-between items-center font-semibold text-lg text-gray-700 cursor-pointer hover:bg-gray-200 p-2 rounded-md"
+          className="flex justify-between items-center text-gray-800 cursor-pointer hover:bg-gray-200 p-2 rounded-md"
           onClick={() => onCategoryClick(category, products)}
         >
           <span>{category}</span>

@@ -25,20 +25,20 @@ const ChildSidebar = ({ selectedCategory, products, onBackToParent }) => {
         className="flex items-center p-4 cursor-pointer"
         onClick={onBackToParent}
       >
-        <FaAngleLeft className="text-xl font-semibold text-gray-500" />
+        <FaAngleLeft className="text-lg text-gray-800" />
         <span className="font-semibold ml-1">MAIN MENU</span>
       </div>
       <hr/>
 
       {/* Heading for Selected Category */}
       <div className="p-5">
-        <h2 className="font-bold text-xl mb-2">{selectedCategory}</h2>
+        <h2 className="font-semibold text-xl mb-2">{selectedCategory}</h2>
 
         {/* List of products */}
         <ul>
           {products.map((product) => (
             <li key={product.name} className="p-2 hover:bg-gray-200 rounded-md">
-              <a href={product.link} className="text-lg font-semibold">
+              <a href={product.link} className="text-gray-800">
                 {product.name}
               </a>
             </li>

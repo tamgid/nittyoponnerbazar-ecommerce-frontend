@@ -1,35 +1,34 @@
 [
-    {
-      "name": "Grocery",
-      "picture": "/Groceriess.jpg"
-    },
-    {
-      "name": "Beverage",
-      "picture": "/juice.png"
-    },
-    {
-      "name": "Cake & Pastry",
-      "picture": "/pastry.jpg"
-    },
-    {
-      "name": "Bread & Bakery",
-      "picture": "/bakery.jpg"
-    },
-    {
-      "name": "Snacks",
-      "picture": "/snacks.jpeg"
-    },
-    {
-      "name": "Dairy",
-      "picture": "/dairy.jpeg"
-    },
-    {
-      "name": "Chocolate & Candy",
-      "picture": "/chocolates.jpeg"
-    },
-    {
-      "name": "Rice & Biriani",
-      "picture": "/rice&biriani.jpeg"
-    }
-  ]
-  
+  {
+    name: "Grocery",
+    picture: "../../public/Groceriess.jpg",
+  },
+  {
+    name: "Beverage",
+    picture: "../../public/juice.png",
+  },
+  {
+    name: "Cake & Pastry",
+    picture: "../../public/pastry.jpg",
+  },
+  {
+    name: "Bread & Bakery",
+    picture: "../../public/bakery.jpg",
+  },
+  {
+    name: "Snacks",
+    picture: "../../public/snacks.jpeg",
+  },
+  {
+    name: "Dairy",
+    picture: "../../public/dairy.jpeg",
+  },
+  {
+    name: "Chocolate & Candy",
+    picture: "../../public/chocolates.jpeg",
+  },
+  {
+    name: "Rice & Biriani",
+    picture: "../../public/rice&biriani.jpeg",
+  },
+];

@@ -12,6 +12,7 @@ const Catalogs = () => {
           key={index}
           heading={catalog.heading}
           categories={catalog.categories}
+          bottomLinkName={catalog.bottomLinkName}
           bottomLink={catalog.bottomLink}
         />
       ))}

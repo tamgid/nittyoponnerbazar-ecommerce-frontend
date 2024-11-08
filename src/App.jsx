@@ -21,8 +21,8 @@ function App() {
         <Route path="/update-profile" element={<UpdateProfile />} />
         {/* Add more routes as needed */}
       </Routes>
+      <Footer />
     </Router>
-    <Footer></Footer>
     </div>
   );
 }

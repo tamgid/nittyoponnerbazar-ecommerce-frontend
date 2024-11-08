@@ -4,7 +4,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-const CategoryCard = ({ heading, categories, bottomLink }) => {
+const CategoryCard = ({ heading, categories, bottomLinkName, bottomLink }) => {
   return (
     <div className="border p-6 shadow-lg">
       {/* Card Heading */}
@@ -24,7 +24,7 @@ const CategoryCard = ({ heading, categories, bottomLink }) => {
 
       {/* Bottom Link */}
       <Link to={bottomLink} className="text-teal-500 mt-4 block">
-        Discover more in Home
+        {bottomLinkName}
       </Link>
     </div>
   );
@@ -41,6 +41,7 @@ CategoryCard.propTypes = {
     })
   ).isRequired,
   bottomLink: PropTypes.string.isRequired,
+  bottomLinkName: PropTypes.string.isRequired,
 };
 
 export default CategoryCard;

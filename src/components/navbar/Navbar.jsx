@@ -12,7 +12,7 @@ import PersonalDetailsDropdown from "../PersonalDetailsDropdown";
 import { MdLocationOn } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import cart from "../../assets/cart.png";
-import logo from "../../assets/logo-home.jpg";
+import logo from "../../assets/logo-home-1.png";
 import usa from "../../assets/usa-flag.webp";
 import bd from "../../assets/bd-flag.png";
 
@@ -68,12 +68,12 @@ const Navbar = () => {
         {/* Logo */}
         <Link
           to="/"
-          className="hover:border hover:border-white rounded-md hover:shadow-lg pt-0.5 pr-2 pb-0.5 pl-2 transition-all duration-300"
+          className="hover:border hover:border-white rounded-md hover:shadow-lg pt-0.5 pr-1 pb-0.5 pl-1 transition-all duration-300"
         >
           <img
             src={logo}
             alt="Nittyoponnerbazar Logo"
-            className="h-[3.3rem] w-[4.5rem] cursor-pointer"
+            className="h-[3.3rem] w-[4rem] cursor-pointer"
             onClick={handleLogoClick} // Handle click event
           />
         </Link>

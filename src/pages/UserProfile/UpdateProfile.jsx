@@ -1,6 +1,11 @@
+import { Helmet } from "react-helmet-async";
+
 const UpdateProfile = () => {
   return (
       <div className="mb-5">
+        <Helmet>
+        <title>Nittyoponner Bazar|Update Profile</title>
+      </Helmet>
         <h1 className="text-center text-3xl font-medium mt-8 mb-5 text-slate-800">
           Update Your Information
         </h1>

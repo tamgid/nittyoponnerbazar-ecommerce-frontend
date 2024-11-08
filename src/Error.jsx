@@ -1,5 +1,5 @@
 import Lottie from "lottie-react";
-import animation from "./public/Animation.json";
+import animation from "../public/Animation.json";
 import { Link } from "react-router-dom";
 const Error = () => {
     return (

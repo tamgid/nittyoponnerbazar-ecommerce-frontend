@@ -38,7 +38,7 @@ const SecondaryNavbar = () => {
   return (
     <div>
       {/* Main Navbar */}
-      <div className="text-white py-1.5" style={{ backgroundColor: "#232f3e" }}>
+      <div className="text-white py-1.5" style={{ backgroundColor: "#085749" }}>
         <div className="mx-auto flex items-center w-full px-7">
           {/* Sidebar Toggle */}
           <div

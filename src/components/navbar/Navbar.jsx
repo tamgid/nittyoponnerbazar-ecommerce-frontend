@@ -63,7 +63,7 @@ const Navbar = () => {
   };
 
   return (
-    <div style={{ backgroundColor: "#1a2223" }} className="shadow-lg p-1">
+    <div style={{ backgroundColor: "#036544" }} className="shadow-lg p-1">
       <div className="mx-auto flex items-center justify-between px-5">
         {/* Logo */}
         <Link
@@ -153,7 +153,7 @@ const Navbar = () => {
               value={searchInput} // Set the value from the state
               onChange={(e) => setSearchInput(e.target.value)} // Update search input state
               placeholder="Search Nittyoponnerbazar"
-              className="border border-gray-300 py-2.5 px-4 text-left focus:outline-none focus:ring-2 focus:ring-blue-500 w-[45rem]"
+              className="border border-gray-300 py-2.5 px-4 text-left focus:outline-none focus:ring-2 focus:ring-blue-500 w-[40rem]"
             />
 
             {/* Search Icon Button */}

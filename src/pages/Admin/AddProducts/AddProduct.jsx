@@ -1,7 +1,7 @@
 const AddProduct = () => {
     return (
         <div>
-            
+            hii
         </div>
     );
 };

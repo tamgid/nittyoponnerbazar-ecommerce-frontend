@@ -1,4 +1,3 @@
-// data.js
 import FruitsVegetables from '../assets/Fruits & Vegetables.png';
 import DairyEggs from '../assets/Dairy & Eggs.png';
 import MeatSeafood from '../assets/Meat & Seafood.png';
@@ -45,7 +44,7 @@ export const catalogData = {
     categories: [
       {
         name: "Fruits & Vegetables",
-        link: "/products/fruits-vegetables",
+        link: "/category-products",
         imageUrl: FruitsVegetables,
       },
       {
@@ -155,6 +154,7 @@ export const catalogData = {
         name: "Cakes",
         link: "/products/cakes",
         imageUrl: Cakes,
+
       },
       {
         name: "Cupcakes",

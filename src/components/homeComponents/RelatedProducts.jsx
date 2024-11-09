@@ -3,8 +3,8 @@ import React from "react";
 import PropTypes from "prop-types"; // Import PropTypes for validation
 import { Link } from "react-router-dom";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import Watch from "../assets/watch.png";
-import Laptop from "../assets/laptop.png"; 
+import Watch from "../../assets/watch.png";
+import Laptop from "../../assets/laptop.png"; 
 
 // Mock data for related products
 const relatedProducts = [

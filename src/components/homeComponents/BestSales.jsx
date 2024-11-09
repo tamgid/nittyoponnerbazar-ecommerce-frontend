@@ -3,8 +3,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import Laptop from "../assets/laptop.png"; 
-import Watch from "../assets/watch.png";// Replace with relevant image or dynamic image path
+import Laptop from "../../assets/laptop.png"; 
+import Watch from "../../assets/watch.png";// Replace with relevant image or dynamic image path
 
 // Mock data for best sales products
 const bestSalesProducts = [

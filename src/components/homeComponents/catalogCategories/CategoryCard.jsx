@@ -1,9 +1,10 @@
-// CategoryCard.js
+// CategoryCard.jsx
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
+// CategoryCard Component
 const CategoryCard = ({ heading, categories, bottomLinkName, bottomLink }) => {
   return (
     <div className="border p-6 shadow-lg">
@@ -14,8 +15,12 @@ const CategoryCard = ({ heading, categories, bottomLinkName, bottomLink }) => {
       <div className="grid grid-cols-2 gap-5">
         {categories.map((category, index) => (
           <div key={index} className="text-left">
-            <Link to={category.link}>
-              <img src={category.imageUrl} alt={category.name} className="rounded-md" />
+          <Link to={`/category-products?name=${encodeURIComponent(category.name)}`}>
+              <img
+                src={category.imageUrl}
+                alt={category.name}
+                className="rounded-md"
+              />
               <p className="mt-1 text-sm">{category.name}</p>
             </Link>
           </div>
@@ -36,7 +41,6 @@ CategoryCard.propTypes = {
   categories: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
-      link: PropTypes.string.isRequired,
       imageUrl: PropTypes.string.isRequired,
     })
   ).isRequired,

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { FaAngleRight } from "react-icons/fa";
 import Tamgid from "../../assets/tamjid.jpg";
 import ChildSidebar from "./ChildSidebar"; // Import ChildSidebar
-import categoryProducts from "../../data/categoryProducts"; // Import category products
+import categoryProducts from "../../data/sidebarCategoryProducts"; // Import category products
 import PropTypes from "prop-types"; // Import PropTypes
 
 const ParentSidebar = () => {

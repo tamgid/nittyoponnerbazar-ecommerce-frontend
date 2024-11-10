@@ -1,6 +1,6 @@
 const UserDashboardBanner = () => {
   return (
-    <div>
+    <div className="relative">
       <div
         className="hero object-cover h-[230px] "
         style={{

@@ -58,7 +58,7 @@ const PersonalDetailsDropdown = ({ toggle }) => {
           {/* Divider line between sections */}
           <span className="font-semibold">Your Account</span>
           <div className="flex flex-col text-gray-700">
-            <Link to="/account">Account</Link>
+            <Link to="/my-profile">Account</Link>
             <Link to="/orders">Orders</Link>
             <Link to="/recommendations">Recommendations</Link>
             <Link to="/browsing-history">Browsing History</Link>

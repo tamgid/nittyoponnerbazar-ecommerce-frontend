@@ -1,68 +1,173 @@
-// Product.jsx (or CategoryProducts.jsx if this is where the product page is defined)
+// Product.jsx
 // eslint-disable-next-line no-unused-vars
-import React, { useEffect } from "react";
-import { useParams } from "react-router-dom"; // Import useParams to get the route parameter
+import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
+import { useParams } from "react-router-dom";
+import { categoryProductsData } from "../data/categoryProductsData";
+import ReactImageMagnify from "react-image-magnify";
 
 const Product = () => {
-  const { id } = useParams(); // Get the product id from the URL params
+  const { id } = useParams();
+  const [product, setProduct] = useState(null);
+  const [mainImage, setMainImage] = useState("");
 
   useEffect(() => {
-    // You can now use the `id` to fetch product details, e.g., from an API or static data
-    console.log("Product ID:", id);
-  }, [id]); // Trigger when id changes (useful for dynamic content)
+    // Find product by ID
+    let foundProduct = null;
+    for (let category in categoryProductsData) {
+      foundProduct = categoryProductsData[category].find(
+        (item) => item.product_id === parseInt(id)
+      );
+      if (foundProduct) break;
+    }
+    if (foundProduct) {
+      setProduct(foundProduct);
+      setMainImage(foundProduct.imageUrl1 || foundProduct.imageUrl); // Set main image
+    }
+  }, [id]);
+
+  if (!product) return <div>Loading...</div>;
 
   return (
-    <div className="max-w-4xl mx-auto my-10 p-6 border rounded-lg shadow-lg">
-      <h2 className="text-3xl font-bold text-center mb-4">Product Name: {id}</h2>
-      
-      {/* Product Image Section */}
-      <div className="flex mb-6">
-        <img
-          src="https://via.placeholder.com/400"
-          alt="Product"
-          className="w-[400px] h-[400px] object-cover border rounded-md"
+    <div className="max-w-7xl mx-auto my-[5rem] grid grid-cols-2 gap-8">
+      {/* Left Column: Product Images */}
+      <div>
+        {/* Zoomable Main Image */}
+        <ReactImageMagnify
+          {...{
+            smallImage: {
+              alt: product.shortDescription,
+              isFluidWidth: true,
+              src: mainImage,
+            },
+            largeImage: {
+              src: mainImage,
+              width: 1000,
+              height: 1000,
+            },
+            enlargedImageContainerStyle: { background: "#fff" },
+            enlargedImageContainerDimensions: {
+              width: "150%",
+              height: "100%",
+            },
+          }}
+          className="border rounded-md"
         />
-        <div className="ml-6 flex-1">
-          {/* Product Details */}
-          <p className="text-lg font-semibold text-gray-700 mb-2">Product Description</p>
-          <p className="text-gray-600 mb-4">
-            This is a placeholder description for the product with ID {id}. You can replace it with actual product details.
-          </p>
-          
-          <p className="text-2xl font-bold text-gray-800 mb-4">$49.99</p>
 
-          {/* Add to Cart Button */}
-          <button className="bg-yellow-600 text-white py-2 px-4 rounded-md text-lg">
-            Add to Cart
-          </button>
+        {/* Thumbnail Images */}
+        <div className="flex mt-4 gap-3">
+          {[
+            product.imageUrl1,
+            product.imageUrl2,
+            product.imageUrl3,
+            product.imageUrl4,
+            product.imageUrl5,
+          ].map((img, idx) => (
+            <img
+              key={idx}
+              src={img}
+              alt={`Thumbnail ${idx + 1}`}
+              onClick={() => setMainImage(img)}
+              className={`w-20 h-20 border rounded cursor-pointer ${
+                mainImage === img ? "border-yellow-500" : "border-gray-300"
+              }`}
+            />
+          ))}
         </div>
       </div>
 
-      {/* Product Reviews Section */}
-      <div className="mt-10">
-        <h3 className="text-2xl font-semibold mb-4">Customer Reviews</h3>
-        <div className="space-y-4">
-          {/* Review 1 */}
-          <div className="border-t pt-4">
-            <p className="font-semibold text-gray-800">John Doe</p>
-            <p className="text-gray-600">★★★★☆</p>
-            <p className="text-gray-700">
-              Great product! Very high quality, exactly as described.
-            </p>
-          </div>
+      {/* Right Column: Product Details */}
+      <div>
+        <h2 className="text-2xl font-medium mb-2">
+          {product.shortDescription}
+        </h2>
 
-          {/* Review 2 */}
-          <div className="border-t pt-4">
-            <p className="font-semibold text-gray-800">Jane Smith</p>
-            <p className="text-gray-600">★★★☆☆</p>
-            <p className="text-gray-700">
-              The product is good, but the color was not as expected.
-            </p>
-          </div>
+        {/* Rating Section */}
+        <div className="flex items-center mb-3">
+          <span className="text-xl text-yellow-600 mr-2">
+            {/* Render filled stars */}
+            {Array(Math.floor(product.rating)).fill("★").join("")}
+            {/* Render unfilled stars */}
+            {Array(5 - Math.floor(product.rating))
+              .fill("☆")
+              .join("")}
+          </span>
+          <span
+            className="text-gray-600 cursor-pointer underline hover:text-blue-700"
+            onClick={() => {
+              // Handle the click event, such as opening a review modal or navigating to a reviews section.
+              console.log("Ratings clicked");
+            }}
+          >
+            {product.noOfRating} ratings
+          </span>
+        </div>
+
+        {/* Product Info */}
+        <div className="space-y-1 mb-5">
+          <p>
+            <strong className="font-semibold mr-1">Sales Last Month:</strong> {product.salesLastMonth}
+          </p>
+          <p>
+            <strong className="font-semibold mr-1">Price:</strong> ${product.price.toFixed(2)}
+          </p>
+          <p>
+            <strong className="font-semibold mr-1">Delivery Date:</strong> {product.deliveryDate}
+          </p>
+          <p>
+            <strong className="font-semibold mr-1">Shipping Location:</strong> {product.shippingLocation}
+          </p>
+        </div>
+
+        {/* Additional Product Info */}
+        <div className="mb-5">
+          <p>
+            <strong className="font-semibold mr-1">Brand:</strong> Premium Foods
+          </p>
+          <p>
+            <strong className="font-semibold mr-1">Item Form:</strong> Whole
+          </p>
+          <p>
+            <strong className="font-semibold mr-1">Flavor:</strong> Original
+          </p>
+          <p>
+            <strong className="font-semibold mr-1">Diet Type:</strong> Vegetarian
+          </p>
+          <p>
+            <strong className="font-semibold mr-1">Number of Items:</strong> 1
+          </p>
+        </div>
+
+        {/* About the Items */}
+        <div>
+          <h3 className="text-xl font-medium mb-3">About the Items</h3>
+          <ul className="list-disc pl-5 space-y-1 text-gray-700">
+            <li>
+              High-quality organic product sourced directly from
+              farms.High-quality organic product sourced directly from farms.
+            </li>
+            <li>
+              Excellent choice for a healthy and balanced diet.High-quality
+              organic product sourced directly from farms.
+            </li>
+            <li>
+              Fresh and fast shipping directly to your location.High-quality
+              organic product sourced directly from farms.
+            </li>
+            <li>
+              100% natural with no added preservatives or colors.High-quality
+              organic product sourced directly from farms.
+            </li>
+          </ul>
         </div>
       </div>
     </div>
   );
+};
+
+// Define prop types
+Product.propTypes = {
+  id: PropTypes.string,
 };
 
 export default Product;

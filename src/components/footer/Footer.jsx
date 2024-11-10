@@ -1,84 +1,181 @@
-import logo from "../../assets/logo-home.jpg";
+/* eslint-disable no-unused-vars */
+import React from "react";
+import { Link } from "react-router-dom";
+
 const Footer = () => {
+  const handleBackToTop = (e) => {
+    e.preventDefault(); // Prevent default link behavior
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // This makes the scroll smooth
+    });
+  };
+
   return (
-    <div>
-      <footer className="footer bg-base-200 items-center text-base-content px-8 md:px-36 py-10">
-        <nav>
-          <h6 className="footer-title">Services</h6>
-          <a className="link link-hover">Branding</a>
-          <a className="link link-hover">Design</a>
-          <a className="link link-hover">Marketing</a>
-          <a className="link link-hover">Advertisement</a>
-        </nav>
-        <nav>
-          <h6 className="footer-title">Company</h6>
-          <a className="link link-hover">About us</a>
-          <a className="link link-hover">Contact</a>
-          <a className="link link-hover">Jobs</a>
-          <a className="link link-hover">Press kit</a>
-        </nav>
-        <nav>
-          <h6 className="footer-title">Legal</h6>
-          <a className="link link-hover">Terms of use</a>
-          <a className="link link-hover">Privacy policy</a>
-          <a className="link link-hover">Cookie policy</a>
-        </nav>
-      </footer>
-      <footer className="footer items-center bg-base-200 text-base-content border-base-300 border-t px-8 md:px-28 py-4">
-        <aside className="grid items-center">
-          <img
-            src={logo}
-            alt="Nittyoponner Bazar"
-            className="w-12 h-12 rounded-lg"
-          />
-          <p>
-            Nittyoponner Bazar Ltd
-            <br />
-            Providing reliable products since 2024
-          </p>
-        </aside>
-        <nav className="md:place-self-center">
-          <div className="grid grid-flow-col gap-4">
-            {/* twitter link */}
-            <a href="www.twitter.com">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                className="fill-current"
-              >
-                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
-              </svg>
-            </a>
-            {/* youtube link */}
-            <a href="www.youtube.com">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                className="fill-current"
-              >
-                <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
-              </svg>
-            </a>
-            {/* facebook link */}
-            <a href="www.facebook.com">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                className="fill-current"
-              >
-                <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
-              </svg>
-            </a>
+    <footer className="bg-gray-900 text-white">
+      {/* Back to top link */}
+      <div
+        className="group text-center mb-8 py-5 relative"
+        style={{
+          backgroundColor: "#1F2937", // Initial background color
+        }}
+      >
+        <div className="absolute inset-0 group-hover:bg-[#485769] transition-all duration-300"></div>
+        <Link
+          to="/"
+          className="relative z-10 text-white"
+          onClick={handleBackToTop}
+        >
+          Back to top
+        </Link>
+      </div>
+
+      {/* Main footer content */}
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 px-10 py-5">
+        {/* Services Column */}
+        <div>
+          <h3 className="font-semibold text-lg mb-3">Services</h3>
+          <ul className="space-y-3 text-sm">
+            {" "}
+            {/* Add space between the list items */}
+            <li>
+              <Link to="#" className="text-gray-300 hover:text-white">
+                Branding
+              </Link>
+            </li>
+            <li>
+              <Link to="#" className="text-gray-300 hover:text-white">
+                Design
+              </Link>
+            </li>
+            <li>
+              <Link to="#" className="text-gray-300 hover:text-white">
+                Marketing
+              </Link>
+            </li>
+            <li>
+              <Link to="#" className="text-gray-300 hover:text-white">
+                Advertisement
+              </Link>
+            </li>
+          </ul>
+        </div>
+
+        {/* Company Column */}
+        <div>
+          <h3 className="font-semibold text-lg mb-3">Company</h3>
+          <ul className="space-y-3 text-sm">
+            <li>
+              <Link to="#" className="text-gray-300 hover:text-white">
+                About Us
+              </Link>
+            </li>
+            <li>
+              <Link to="#" className="text-gray-300 hover:text-white">
+                Contact
+              </Link>
+            </li>
+            <li>
+              <Link to="#" className="text-gray-300 hover:text-white">
+                Jobs
+              </Link>
+            </li>
+            <li>
+              <Link to="#" className="text-gray-300 hover:text-white">
+                Press Kit
+              </Link>
+            </li>
+          </ul>
+        </div>
+
+        {/* Legal Column */}
+        <div>
+          <h3 className="font-semibold text-lg mb-3">Legal</h3>
+          <ul className="space-y-3 text-sm">
+            <li>
+              <Link to="#" className="text-gray-300 hover:text-white">
+                Terms of Use
+              </Link>
+            </li>
+            <li>
+              <Link to="#" className="text-gray-300 hover:text-white">
+                Privacy Policy
+              </Link>
+            </li>
+            <li>
+              <Link to="#" className="text-gray-300 hover:text-white">
+                Cookie Policy
+              </Link>
+            </li>
+          </ul>
+        </div>
+
+        {/* Let Us Help You Column */}
+        <div>
+          <h3 className="font-semibold text-lg mb-3">Let Us Help You</h3>
+          <ul className="space-y-3 text-sm">
+            <li>
+              <Link to="#" className="text-gray-300 hover:text-white">
+                Your Account
+              </Link>
+            </li>
+            <li>
+              <Link to="#" className="text-gray-300 hover:text-white">
+                Your Orders
+              </Link>
+            </li>
+            <li>
+              <Link to="#" className="text-gray-300 hover:text-white">
+                Shipping Rates & Policies
+              </Link>
+            </li>
+            <li>
+              <Link to="#" className="text-gray-300 hover:text-white">
+                Returns & Replacements
+              </Link>
+            </li>
+            <li>
+              <Link to="#" className="text-gray-300 hover:text-white">
+                Manage Your Content and Devices
+              </Link>
+            </li>
+            <li>
+              <Link to="#" className="text-gray-300 hover:text-white">
+                Help
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      {/* License and legal links */}
+      <div className="bg-gray-800 text-gray-400 text-sm py-6 mt-8">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          {/* First line of links (all in the same row) */}
+          <div className="flex justify-center space-x-4 mb-4">
+            <Link to="#" className="hover:text-white">
+              Conditions of Use
+            </Link>
+            <Link to="#" className="hover:text-white">
+              Privacy Notice
+            </Link>
+            <Link to="#" className="hover:text-white">
+              Consumer Health Data Privacy Disclosure
+            </Link>
+            <Link to="#" className="hover:text-white">
+              Your Ads Privacy Choices
+            </Link>
           </div>
-        </nav>
-      </footer>
-    </div>
+
+          {/* Second line of the license (centered below) */}
+          <div>
+            <span>
+              © 1996-2024, nittyoponnerbazar.com, Inc. or its affiliates
+            </span>
+          </div>
+        </div>
+      </div>
+    </footer>
   );
 };
 

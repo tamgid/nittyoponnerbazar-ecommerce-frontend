@@ -2,7 +2,7 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import CategoryCard from "./CategoryCard";
-import { catalogData } from "../../data/catalogData"; // Import catalog data
+import { catalogData } from "../../../data/homeCatalogData"; // Import catalog data
 
 const Catalogs = () => {
   return (
@@ -12,6 +12,7 @@ const Catalogs = () => {
           key={index}
           heading={catalog.heading}
           categories={catalog.categories}
+          bottomLinkName={catalog.bottomLinkName}
           bottomLink={catalog.bottomLink}
         />
       ))}

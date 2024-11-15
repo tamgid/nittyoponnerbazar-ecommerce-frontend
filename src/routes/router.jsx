@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import Error from "../Error";
-import Home from "../pages/Home/Home";
+import Home from "../pages/Home"
 import UserProfile from "../pages/UserProfile/UserProfile";
 // import PrivateRoute from "./PrivateRoute";
 import UpdateProfile from "../pages/UserProfile/UpdateProfile";

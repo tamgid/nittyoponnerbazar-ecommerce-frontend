@@ -1,19 +1,29 @@
-import { useState } from "react";
-import DashboardHeading from "../../Dashboard/DashboardHeading";
 import { Helmet } from "react-helmet-async";
+import DashboardHeading from "../../Dashboard/DashboardHeading";
+import { useState } from "react";
 // import useAxiosSecure from "../../../hooks/useAxiosSecure";
 // import { useNavigate } from "react-router-dom";
 
-const AddProduct = () => {
-  const [productCategory, setProductCategory] = useState(null);
-  const [productSubCategory, setProductSubCategory] = useState(null);
+const UpdateProduct = () => {
+  const [productCategory, setProductCategory] = useState("Bakery");
+  const [productSubCategory, setProductSubCategory] = useState("Pastry");
   const [productImage, setProductImage] = useState([]);
   const [variationType, setVariationType] = useState(null);
   const [variation, setVariation] = useState([]);
   const [imagePreviews, setImagePreviews] = useState([]);
-  // const axiosSecure=useAxiosSecure();
-  // const navigate=useNavigate();
+  //   const axiosSecure = useAxiosSecure();
+  //   const navigate = useNavigate();
 
+  const handleSelectVariation = (e) => {
+    const value = e.target.value;
+    if (e.target.checked) {
+      // Add the selected option
+      setVariation((prev) => [...prev, value]);
+    } else {
+      // Remove the deselected option
+      setVariation((prev) => prev.filter((option) => option !== value));
+    }
+  };
   const handleImageInput = (e) => {
     setProductImage(e.target.files);
     const files = e.target.files;
@@ -34,17 +44,6 @@ const AddProduct = () => {
     setImagePreviews((prevImages) => [...prevImages, ...previews]);
   };
 
-  const handleSelectVariation = (e) => {
-    const value = e.target.value;
-    if (e.target.checked) {
-      // Add the selected option
-      setVariation((prev) => [...prev, value]);
-    } else {
-      // Remove the deselected option
-      setVariation((prev) => prev.filter((option) => option !== value));
-    }
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -55,39 +54,36 @@ const AddProduct = () => {
       formData.append("items", productImage[i]);
       console.log(productImage[i]);
     }
-    //  try {
-    // const response = await axiosSecure.post("/upload", formData, {
-    //   headers: {
-    //     "Content-Type": "multipart/form-data",
-    //   },
-    // });
-    // const getImage = response?.data?.files;
-    // getImage.forEach((a) => {
-    //   images.push({
-    //     image_filename: a.filename,
+    // try {
+    //   const response = await axiosSecure.post("/upload", formData, {
+    //     headers: {
+    //       "Content-Type": "multipart/form-data",
+    //     },
     //   });
-    // });
-    // create new product object
-    const product = {
+    //   const getImage = response?.data?.files;
+    //   getImage.forEach((a) => {
+    //     images.push({
+    //       image_filename: a.filename,
+    //     });
+    //   });
+    const updatedProduct = {
+      product_name: e.target.product_name.value,
+      sku: e.target.sku.value,
+      product_price: e.target.product_price.value,
+      product_quantity: e.target.product_quantity.value,
+      product_description: e.target.product_description.value,
+      product_term_and_condition: e.target.product_term_and_condition.value,
+      product_expiry_date: e.target.product_expiry_date.value,
       product_category: productCategory,
       product_sub_category: productSubCategory,
-      product_image: images,
       variationType: variationType,
       variation: variation,
-      product_name: e.target.product_name.value,
-      product_price: e.target.product_price.value,
-      product_description: e.target.product_description.value,
-      terms_and_conditions: e.target.product_term_and_condition.value,
-      product_expiry_date: e.target.product_expiry_date.value,
-      product_quantity: e.target.product_quantity.value,
-      sku: e.target.sku.value,
+      product_image: images,
     };
-
-    console.log(product);
-
-    //   const formResponse = await axiosSecure.post(
-    //     "/api/product/",
-    //     product,
+    console.log(updatedProduct);
+    //   const formResponse = await axiosSecure.put(
+    //     "/api/product/:id",
+    //     updatedProduct,
     //     {
     //       headers: {
     //         "Content-Type": "application/json",
@@ -103,22 +99,24 @@ const AddProduct = () => {
     //   // an alert must be shown as post failed message
     //   e.target.reset();
     // }
+
     e.target.reset();
   };
-
   return (
     <>
       <Helmet>
-        <title>Nittyoponner Bazar|Admin-Add Product</title>
+        <title>Nittyoponner Bazar|Admin-Update Product</title>
       </Helmet>
+
       {/* heading */}
       <div className="my-3">
         <DashboardHeading
-          heading="Add Product"
-          subheading="Add a new product providing the following information."
+          heading="Update Product"
+          subheading="If you want to update any information of this product, please insert below."
         ></DashboardHeading>
       </div>
-      {/* Add product form starts here */}
+
+      {/* form */}
       <div className="p-4 m-4 rounded-xl border border-y-teal-700 shadow-lg shadow-teal-800">
         <form onSubmit={handleSubmit} className="mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 px-5 items-stretch justify-center ">
@@ -130,7 +128,7 @@ const AddProduct = () => {
               <input
                 type="text"
                 name="product_name"
-                placeholder="Enter the name of your product here"
+                defaultValue="Jhalmuri"
                 className="input input-bordered w-full"
                 required
               />
@@ -143,7 +141,7 @@ const AddProduct = () => {
               <input
                 type="text"
                 name="sku"
-                placeholder="Enter the SKU of your product here"
+                defaultValue="BK1234"
                 className="input input-bordered w-full"
                 required
               />
@@ -164,7 +162,7 @@ const AddProduct = () => {
                 onChange={handleImageInput}
                 multiple={true}
               />
-
+              {/* preview pictures */}
               <div className="mt-4 flex flex-wrap gap-3">
                 {imagePreviews.map((image, index) => (
                   <img
@@ -186,6 +184,7 @@ const AddProduct = () => {
               <select
                 className="select select-bordered w-full "
                 required
+                defaultValue={productCategory}
                 onChange={(e) => setProductCategory(e.target.value)}
               >
                 <option value="" disabled selected>
@@ -213,6 +212,7 @@ const AddProduct = () => {
               <select
                 className="select select-bordered w-full "
                 required
+                defaultValue={productSubCategory}
                 onChange={(e) => setProductSubCategory(e.target.value)}
               >
                 <option value="" disabled selected>
@@ -232,7 +232,7 @@ const AddProduct = () => {
               <input
                 type="number"
                 name="product_price"
-                placeholder="Enter the price of your product here"
+                defaultValue={500}
                 className="input input-bordered w-full"
                 required
               />
@@ -245,7 +245,7 @@ const AddProduct = () => {
               <input
                 type="number"
                 name="product_quantity"
-                placeholder="Enter the quantity of your product here"
+                defaultValue={400}
                 className="input input-bordered w-full"
                 required
               />
@@ -258,7 +258,7 @@ const AddProduct = () => {
               <input
                 type="date"
                 name="product_expiry_date"
-                placeholder="Enter the expiry date of your product here"
+                defaultValue={new Date("2024-11-24")}
                 className="input input-bordered w-full"
                 required
               />
@@ -296,7 +296,7 @@ const AddProduct = () => {
                   <input
                     type="checkbox"
                     value="1L"
-                    className="checkbox checkbox-accent"
+                    className="checkbox checkbox-primary"
                     onChange={handleSelectVariation}
                   />
                   <span className="ml-2">1L</span>
@@ -305,7 +305,7 @@ const AddProduct = () => {
                   <input
                     type="checkbox"
                     value="1.5L"
-                    className="checkbox checkbox-accent"
+                    className="checkbox checkbox-primary"
                     onChange={handleSelectVariation}
                   />
                   <span className="ml-2">1.5L</span>
@@ -314,7 +314,7 @@ const AddProduct = () => {
                   <input
                     type="checkbox"
                     value="2L"
-                    className="checkbox checkbox-accent"
+                    className="checkbox checkbox-primary"
                     onChange={handleSelectVariation}
                   />
                   <span className="ml-2">2L</span>
@@ -323,7 +323,7 @@ const AddProduct = () => {
                   <input
                     type="checkbox"
                     value="5L"
-                    className="checkbox checkbox-accent"
+                    className="checkbox checkbox-primary"
                     onChange={handleSelectVariation}
                   />
                   <span className="ml-2">5L</span>
@@ -341,6 +341,7 @@ const AddProduct = () => {
               placeholder="Enter short description of your product here"
               className="textarea textarea-bordered textarea-md w-full "
               required
+              defaultValue="This is for test"
             ></textarea>
           </div>
           {/* terms and conditions of product */}
@@ -354,6 +355,7 @@ const AddProduct = () => {
               name="product_term_and_condition"
               placeholder="Enter terms and conditions of your product here"
               className="textarea textarea-bordered textarea-md w-full "
+              defaultValue="This is for test"
             ></textarea>
           </div>
           <div className="flex flex-row items-center justify-center mx-auto">
@@ -361,7 +363,7 @@ const AddProduct = () => {
               type="submit"
               className="btn btn-ghost btn-wide my-5 text-center bg-teal-500 text-white text-lg"
             >
-              Add
+              Update
             </button>
           </div>
         </form>
@@ -370,4 +372,4 @@ const AddProduct = () => {
   );
 };
 
-export default AddProduct;
+export default UpdateProduct;

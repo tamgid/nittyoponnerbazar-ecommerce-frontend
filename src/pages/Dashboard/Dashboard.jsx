@@ -13,7 +13,17 @@ const Dashboard = () => {
                 <Outlet></Outlet>
             </div>   
         </div>
-       
+        {/* <div className="flex flex-col md:flex-row">
+        <div className="md:w-1/3 ">
+          <UserCommonSidebar></UserCommonSidebar>
+            </div>
+           <div className="md:flex-1">
+           <UserDashboardBanner></UserDashboardBanner>
+            <div className=" py-8">
+                <Outlet></Outlet>
+            </div> 
+           </div>
+        </div> */}
         </>
     );
 };

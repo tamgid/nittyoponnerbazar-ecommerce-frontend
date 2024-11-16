@@ -18,7 +18,7 @@ const UpdateProfile = () => {
               <input
                 type="text"
                 name="name"
-                //defaultValue={user?.name}
+                defaultValue={"Mahfuja Yesmin"}
                 className="input input-bordered w-full"
                 required
               />
@@ -30,7 +30,7 @@ const UpdateProfile = () => {
               <input
                 type="email"
                 name="email"
-                //defaultValue={user?.email}
+                defaultValue={"mahfujasolaiman77@gmail.com"}
                 className="input input-bordered w-full"
                 required
               />
@@ -42,7 +42,7 @@ const UpdateProfile = () => {
               <input
                 type="text"
                 name="phoneNumber"
-                //defaultValue={user?.phoneNumber}
+                defaultValue={"01777118790"}
                 className="input input-bordered w-full"
                 required
               />
@@ -53,7 +53,7 @@ const UpdateProfile = () => {
               </label>
               <textarea
                 name="address"
-                //defaultValue={user?.address}
+                defaultValue={"Middle Rampur, Eidgha, Chittagong."}
                 className="textarea textarea-bordered textarea-md w-full "
               ></textarea>
             </div>

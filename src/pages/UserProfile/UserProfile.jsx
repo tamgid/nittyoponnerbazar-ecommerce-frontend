@@ -8,7 +8,7 @@ const UserProfile = () => {
         <title>Nittyoponner Bazar|My Profile</title>
       </Helmet>
       <div className="flex items-center max-w-6xl mx-auto my-8 px-2">
-        <div className="card bg-base-100 w-full shadow-xl border-t-2 border-teal-600">
+        <div className="card bg-base-100 w-full shadow-xl border-b-2 border-teal-600">
           <div className="card-body">
             <div className="flex flex-row gap-5 items-left text-left">
               <figure className="px-4">
@@ -70,7 +70,7 @@ const UserProfile = () => {
             </div>
             <div className="card-actions">
               <button className="btn btn-xs sm:btn-sm md:btn-md bg-teal-500 text-white border-0">
-                <Link to="/update-profile">Update Info</Link>
+                <Link to="/dashboard/update-profile">Update Info</Link>
               </button>
             </div>
           </div>
